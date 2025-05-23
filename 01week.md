@@ -17,7 +17,7 @@
 ➜ 데이터의 크기 n에 따른 필요 단계를 T(n)으로 사용중.<br>
 &nbsp;&nbsp;&nbsp;&nbsp; ⤷ 자연수 n은 통상적으로 실수 전체로 편의상 그림.<br>
 &nbsp;&nbsp;&nbsp;&nbsp; ⤷ range(1,6)안에 i=6이 있는지 검사하는 과정이 단계에서 빠져있는 등 더 복잡한 이야기들이 남아있음.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; time의 약자 T(n)은 작은 부분까지 명확히 알기 힘들고, 알 필요도 없음.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⤷ time의 약자 T(n)은 작은 부분까지 명확히 알기 힘들고, 알 필요도 없음.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⤷ 수학에서의 "근사"와 같이, 대략적인 경향성 파악이 중요하다.<br>
 </details>
 <details>
@@ -28,7 +28,7 @@
 ➜ O(1)은 상수시간을 가지는 경우이고, O(n)은 선형시간을 가지는 경우이다.<br>
 ➜ 이진탐색의 경우 O(log n)을 가진다. <br>
 &nbsp;&nbsp;&nbsp;&nbsp; ⤷ 예를 들어, n개의 자연수로 Up & Down 놀이를 하는 횟수는 이상적으로 최대 log n의 내림한 자연수.<br>
-&nbsp;&nbsp;&nbsp;&nbsp; ⤷ 이쪽 업계에서 log의 밑은 기본적으로 2이고, ln은 쓸 일 잘 없음. <br>
+&nbsp;&nbsp;&nbsp;&nbsp; ⤷ 이쪽 업계에서 log의 밑은 기본적으로 2임. <br>
 </details>
 <details>
 <summary>공간복잡도</summary>
