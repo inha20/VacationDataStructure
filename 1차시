@@ -24,26 +24,19 @@
 </details>
 
 <details>
-<summary>T(n)</summary>
-➜ 데이터의 크기 n에 따른 필요 단계를 T(n)으로 사용중.<br>
-&nbsp;&nbsp;&nbsp;&nbsp; ⤷ 자연수 n은 통상적으로 실수 전체로 편의상 그림.<br>
-&nbsp;&nbsp;&nbsp;&nbsp; ⤷ range(1,6)안에 i=6이 있는지 검사하는 과정이 단계에서 빠져있는 등 더 복잡한 이야기들이 남아있음.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; time의 약자 T(n)은 작은 부분까지 명확히 알기 힘들고, 알 필요도 없음.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⤷ 수학에서의 "근사"와 같이, 대략적인 경향성 파악이 중요하다.<br>
+<summary>O(n)</summary>
+➜ 가장 큰 하나의 항만 표현<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ⤷ 차수는 남기고, 계수는 보통 떼지만 남겨두기도 함.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ⤷ 예를 들어, 다항함수의 경우 최고차항만 표시. 계수를 뗄 수도, 붙일 수도 있음.<br>
+➜ O(1)은 상수시간을 가지는 경우이고, O(n)은 선형시간을 가지는 경우이다.<br>
+➜ 이진탐색의 경우 O(log n)을 가진다. <br>
+&nbsp;&nbsp;&nbsp;&nbsp; ⤷ 예를 들어, n개의 자연수로 Up & Down 놀이를 하는 횟수는 이상적으로 최대 log n의 내림한 자연수.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ⤷ 이쪽 업계에서 log의 밑은 기본적으로 2이고, ln은 쓸 일 잘 없음. <br>
 </details>
 
-> 리눅스에 한글 설치하기
-
-
-<details><summary>리눅스에 한글 설치하기
+<details><summary>공간복잡도
 </summary>
-➜ sudo apt-get install fonts-unfonts-core -y<br>
-&nbsp;&nbsp;&nbsp;&nbsp;⤷ UnFonts 코어 폰트 패키지를 설치하는 명령어.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;⤷ apt-get ; // 패키지 관리 도구. 설치-업데이트-제거 기능.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;⤷ fonts-unfonts-core ; // 폰트 이름. UnFonts 코어 폰트. <br>
-➜sudo apt-get install ibus ibus-hangul -y <br>
-&nbsp;&nbsp;&nbsp;&nbsp;⤷ 한글 입력기를 설치하는 명령어.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;⤷ ibus ; // 다양한 언어 입력을 지원하는 입력기 프레임워크.  Intelligent Input Bus(IBus). <br>
-&nbsp;&nbsp;&nbsp;&nbsp;⤷ ibus-hangul ; // 한글 입력을 가능하게 해주는 IBus용 한글 입력기.<br>
-➜sudo reboot <br>
+➜ 선형공간복잡도, 상수공간복잡도<br>
+➜ 자료구조 특성상 공간 적게 쓰기 훈련을 하지만, 실무에선 안전성과 가독성 위주의 코딩을 하자.<br>
+➜ 학습목적 : 효율적 코딩, 코딩 이해 등. 실무에서 필요성을 느끼게 될 수 있음.<br>
 </details>
