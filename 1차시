@@ -1,12 +1,9 @@
 # 이론  
-
-
+<br>
 순서도, 코딩에서의 문서관리와 파일관리, 메서드와 함수에 대해 알면 좋습니다.  
-
-
-
+<br>
 >알고리즘 얘기
-
+<br>
 <details><summary>입론</summary>  
 ➜ 정의 ; 입력을 기반으로 출력을 생성하는 명확하고 효율적이며 유한한 프로세스.  
 ➜ 명확함, 효율성, 유한함, (정확성).  
@@ -14,7 +11,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;⤷ 효과적 평가를 위해 단계를 살펴보기로 결정, 수식의 등장이 필요.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⤷ 같은 문장은 다른 언어라도 대체로 같은 알고리즘임을 묵시적으로 전제함.  
 </details>
-
+<br>
 <details>
 <summary>T(n)</summary>
 ➜ 데이터의 크기 n에 따른 필요 단계를 T(n)으로 사용중.<br>
@@ -23,7 +20,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; time의 약자 T(n)은 작은 부분까지 명확히 알기 힘들고, 알 필요도 없음.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⤷ 수학에서의 "근사"와 같이, 대략적인 경향성 파악이 중요하다.<br>
 </details>
-
+<br>
 <details>
 <summary>O(n)</summary>
 ➜ 가장 큰 하나의 항만 표현<br>
@@ -34,10 +31,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp; ⤷ 예를 들어, n개의 자연수로 Up & Down 놀이를 하는 횟수는 이상적으로 최대 log n의 내림한 자연수.<br>
 &nbsp;&nbsp;&nbsp;&nbsp; ⤷ 이쪽 업계에서 log의 밑은 기본적으로 2이고, ln은 쓸 일 잘 없음. <br>
 </details>
-
+<br>
 <details>
 <summary>공간복잡도</summary>
 ➜ 선형공간복잡도, 상수공간복잡도<br>
 ➜ 자료구조 특성상 공간 적게 쓰기 훈련을 하지만, 실무에선 안전성과 가독성 위주의 코딩을 하자.<br>
 ➜ 학습목적 : 효율적 코딩, 코딩 이해 등. 실무에서 필요성을 느끼게 될 수 있음.<br>
 </details>
+<br>
