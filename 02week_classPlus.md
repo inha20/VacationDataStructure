@@ -11,7 +11,7 @@
 
 ## 문항 자료 제시
 <br>
-![Image](https://github.com/inha20/VacationDataStructure/issues/1#issue-3087734743)
+![문항 캡쳐본](https://github.com/inha20/VacationDataStructure/issues/1#issue-3087734743)
 ```python
 # Define the range for k
 k_min = 2
