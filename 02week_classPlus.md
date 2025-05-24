@@ -45,9 +45,15 @@ for k in range(k_min, k_max):
 result = max_k + min_k
 
 print(f"The sum of the maximum and minimum values of k is {result}.")
-```python
+
+```
 
 
 ## 질문
-과 같이 이미지의 문제를 풀은 코딩에 대해,
-/** Example Hint*/가 코딩 프로그램에서 힌트
+이와 같이 이미지의 문제를 풀은 코딩에 대해,<br>
+/** Example Hint*/가 코딩 프로그램에서 함수 또는 메서드의 사용 부분에서 코딩의 힌트가 될 수 있도록 구현하여 <br>
+순서도, 자료구조, 파일관리, 중복코드 관리, 주석의 부분에서 <br>
+좋은 코드를 작성하시오. <br>
+
+## 결론
+학과내용 다 배운 후 도전할 능력이 되었으면 좋겠다.
