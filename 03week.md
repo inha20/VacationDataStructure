@@ -2,6 +2,11 @@
 
 >"알고리즘 + 자료구조 = 프로그램"
 
+
+
+
+<details><summary>pi@raspberrypi : ~s sudo apt install vim -y
+</summary>
 <table>
         <thead>
             <tr>
@@ -28,3 +33,9 @@
             </tr>
         </tbody>
     </table>
+</details>
+
+
+
+
+
