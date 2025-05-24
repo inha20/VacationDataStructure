@@ -2,6 +2,9 @@
 
 > 0을 뒤로 옮기기
 
+<details><summary>개론
+</summary>
+```python
 ExampleInputList = [0, 1, 0, 2, 3, 0, 0]
 
 OutputList1 = []
@@ -28,3 +31,8 @@ for i in ExampleInputList:
         OutputList3[indexFronBack] = 0
         indexFronBack-=1
 print(OutputList3)
+```
+</details>
+
+
+
