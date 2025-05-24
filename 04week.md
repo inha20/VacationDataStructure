@@ -33,6 +33,8 @@ for i in ExampleInputList:
         indexFronBack-=1
 print(OutputList3)
 ```
+<br>
+세 경우 모두 시간복잡도와 공간복잡도가 모두 선형 ( 선형시간, 선형공간 ) 이며 T(n) 및 실제 과정은 크게 차이남.
 </details>
 
 
