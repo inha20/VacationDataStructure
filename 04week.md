@@ -2,8 +2,7 @@
 
 > 0을 뒤로 옮기기
 
-<details><summary>개론
-</summary>
+<details><summary>개론</summary>
 ```python
 ExampleInputList = [0, 1, 0, 2, 3, 0, 0]
 
