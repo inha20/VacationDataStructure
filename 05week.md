@@ -215,9 +215,17 @@ def reverse(self):
     <summary>링크드 리스트 사이클 찾기</summary>
     
 ```python
--------
+def has_cycle(self):
+    slow = self.head
+    fast = self.head
+    while fast.link and fast:
+        slow = slow.link  
+        fast = fast.link.link  
+        if slow == fast:
+            return True  
+    return False 
 ```
------
+이 메서드의 정확도를 고등학교까지의 수학적으로 따져볼 필요성이 있어보인다. slow와 fast의 이동 칸 수 차이가 1임으로 사이클의 끝에 None 대신 사이클의 원소가 들어있지 않은지를 판별할 수 있다는 명제의 참거짓을 밝히기 위해, 사이클의 끝에 사이클의 원소 잘못 대입을 가정한 후 slow와 fast의 칸 수 차이가 2 이상이지 못함을 보이자. 이 때 칸수가 2일때만 보이면 충분하며, 예시로 1-2-3-4-2 와 1-2-3-4-5-2 의 두 가지 예시가 모두 만족함으로 전제하는 근본 논리가 참임을 보일 수 있다. 
 </details>
 
 
