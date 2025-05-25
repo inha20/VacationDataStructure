@@ -37,7 +37,7 @@ def is_valid_parentheses(expression : str) -> bool:  # type hint
                 stack.pop()
     return len(stack) == 0 
 ```
-------
+
 </details>
 
 <details>
@@ -61,6 +61,6 @@ class Queue:
         self.front += 1
         return data
 ```
-------
+
 </details>
 
