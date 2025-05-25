@@ -56,7 +56,8 @@ for Index, Value in enumerate(ExampleInputList):
         IndexZero += 1
 print(ExampleInputList)
 ```
-설명 대규모
+선형시간과 상수공간을 만족시킨다는 점에서 기존보다 개선된 알고리즘이다. <br>
+if IndexZero != Index: 란 "0이 있기로 했던(IndexZero+=1이 아래쪽에 있음) 인덱스와 리스트의 인덱스가 다르다면"이라는 뜻으로, 이 과정을 통해  
 </details>
 
 
