@@ -36,7 +36,7 @@ print(OutputList3)
 세 경우 모두 시간복잡도와 공간복잡도가 모두 선형 ( 선형시간, 선형공간 ) 이며 T(n) 및 실제 과정은 크게 차이남. <br>
 첫 번째는 두 번 순회하고,
 세 번째는 음수 인덱스 연산과정이 들어가며, <br>
-세 경우 모두 원본이 아닌 복사본을 다르는 방식이라 데이터의 크기가 커질 때 굳이 덮어쓰는 방식으로 원본을 변경하고 싶지 않음. 위험하고 불필요함.
+세 경우 모두 원본이 아닌 복사본을 다루는 방식이라 데이터의 크기가 커질 때 굳이 덮어쓰는 방식으로 원본을 변경하고 싶지 않음. 위험하고 불필요함.
 </details>
 
 
@@ -47,13 +47,14 @@ print(OutputList3)
     
 ```python
 ExampleInputList = [0, 1, 0, 2, 3, 0, 0]
-OutputList = [0] * len(ExampleInputList)
-FakeIndex = 0
-for num in ExampleInputList:
-    if num != 0:
-        OutputList[FakeIndex] = 0
-        FakeIndex += 1
-print(OutputList)
+IndexZero = 0
+for Index, Value in enumerate(ExampleInputList):
+    if Value != 0:
+        ExampleInputList[IndexZero] = Value
+        if IndexZero != Index:
+            ExampleInputList[Index] = 0
+        IndexZero += 1
+print(ExampleInputList)
 ```
 설명 대규모
 </details>
