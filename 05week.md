@@ -121,3 +121,57 @@ class LinkedList:
 head부터 시작된 current가 있을 동안, 다시 말해 current가 가리키는 노드가 정의되어 있을 동안, current(노드)의 자식 관계인 current.data와 찾을 값(targer)을 비교한다. 틀릴 경우 current는 link에 연결된 가 다음 노드로 넘어가 같은 작업을 반복한다. 반복문 전체를 다 돌을 동안 찾지 못한 채 반복문이 끝난다면, 찾지 못했다는 안내 메세지를 띄어준다.
 </details>
 
+
+
+
+
+
+
+
+<details>
+    <summary>append() 메서드</summary>
+    
+```python
+    def append(self, data):
+        if not self.head:
+            self.head = Node(data)
+            return
+        current = self.head
+        while current.link:
+            current = current.link  
+        current.link = Node(data)
+```
+self.head가 없으면 붙이고, 있을 경우 다음에 따른다 : current.link가 있을 동안 current=current.link로 한 칸 씩 넘어가며 current를 제일 마지막으로 몰은 후, 그러한 current의 link에 data를 입력받아 생성된 Node를 연결한다.
+</details>
+
+
+
+
+
+
+
+
+
+
+<details>
+    <summary>append() 메서드</summary>
+    
+```python
+    def remove(self, target):
+        current = self.head
+        if self.head.data == target:
+            self.head = self.head.link
+            current.link = None
+            return
+
+        previous = None
+        while current:
+            if target == current.data:
+                previous.link = current.link
+                current.link = None
+            previous = current
+            current = current.link
+```
+head에 target이 있을 경우, 먼저 head를 기존 head의 link로 옮겨준 후 여전히 그 앞을 가리키고 있는 current가 가리키는 연결을 끊는다. current 변수는 garvage collecter에 의해 자동으로 사라진다. 다음 변수 하나를 while문 밖에 선언 후, current가 있을 동안 다음을 수행한다 : previous를 current와 같은 대상을 가리키게 한 후 current가 한 칸 앞으로 가는 (링크를 타는) 행위를 target != current.data일 동안 반복하며, 만약 그렇지 않다면 current의 연결을 모두 끊어 삭제하기 위해 current의 link를 previous의 것으로 넘겨줘 기존의 previous.lonk에게 가리킴 받고 있던 것을 본인의 link로 대체하여 가리킴 받는 것을 끊은 후 본인이 가르키는 것을 None으로 하여 링크드리스트에 이상 없이 잘 제외되어있는 상황에서 가비지 컬렉터에 의해 target이 삭제됨. 
+</details>
+
