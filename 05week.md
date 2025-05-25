@@ -64,6 +64,16 @@ class LinkedList:
             PrevNode = CurNode  
             CurNode = NextLink 
         self.head = PrevNode
+
+    def has_cycle(self):
+        slow = self.head
+        fast = self.head
+        while fast.link and fast:
+            slow = slow.link  
+            fast = fast.link.link  
+            if slow == fast:
+                return True  
+        return False 
 ```
 부분부분 나눠서 이해해보자.
 </details>
@@ -229,15 +239,3 @@ def has_cycle(self):
 </details>
 
 
-
-
-
-
-<details>
-    <summary>이중 링크드 리스트로 변경하기</summary>
-    
-```python
--------
-```
-이중 링크드 리스트의 기능 구현은 다음 주차에서 계속.
-</details>
