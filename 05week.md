@@ -54,6 +54,16 @@ class LinkedList:
             result = result + f"{current.data} -> "
             current = current.link
         return result + "END"
+
+    def reverse(self):
+        PrevNode = None
+        CurNode = self.head
+        while CurNode:
+            NextLink = CurNode.link 
+            CurNode.link = PrevNode  
+            PrevNode = CurNode  
+            CurNode = NextLink 
+        self.head = PrevNode
 ```
 부분부분 나눠서 이해해보자.
 </details>
