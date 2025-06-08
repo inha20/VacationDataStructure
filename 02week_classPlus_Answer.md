@@ -1,5 +1,5 @@
 
-@inha20/VacationDataStructure/02week_classPlus.md 
+[여기를 클릭하세요](https://github.com/inha20/VacationDataStructure/blob/main/02week_classPlus.md)
 
 ```python
 ComputedResults = set()
