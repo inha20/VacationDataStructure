@@ -1,5 +1,5 @@
 
-(https://github.com/inha20/VacationDataStructure/blob/main/02week_classPlus.md)
+[문제 보기](https://github.com/inha20/VacationDataStructure/blob/main/02week_classPlus.md)
 
 ```python
 ComputedResults = set()
