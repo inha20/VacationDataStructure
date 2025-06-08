@@ -1,4 +1,4 @@
-@02week_classPlus.md
+@inha20/VacationDataStructure/02week_classPlus.md 
 
 ```python
 ComputedResults = set()
