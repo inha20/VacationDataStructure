@@ -1,3 +1,5 @@
+02week_classPlus.md
+
 ```python
 ComputedResults = set()
 MatchingKValues = []  
@@ -36,3 +38,4 @@ else:
     print("리스트가 비어 있어 답을 계산할 수 없습니다.")
 ```
 
+추후 59가 아닌 다른 숫자로 도전하기, 모든 상황을 중복 없이 검토하는지 준서도로 점검하기, 문제 조건에 맞춰 업그레이드하기.
