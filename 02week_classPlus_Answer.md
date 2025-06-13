@@ -25,7 +25,7 @@ def FiveLoop(ForMin, ForMax):
             #print(f"k 값: {k}, 만족 개수: {len(ComputedResults)}")
             return "STOP"
 
-for i in range(2, 500, 6):
+for i in range(2, 500):
     result = FiveLoop(i, i + 1)
     if result == "STOP":
         break
