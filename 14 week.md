@@ -110,7 +110,8 @@ for i in range(graph_size):
     for j in range(graph_size):
         if g1.graph[i][j] != 0:
             edges.append([g1.graph[i][j], i, j])
+edges.sort()
 ```
 
-edges list에 간선을 등록하고 있다.
+edges list에 간선을 등록한 후 비용 순으로 정렬하고 있다.
  </details>
