@@ -12,8 +12,6 @@ class Graph:
 class DisjointSet:  # 크루스칼 알고리즘을 위한 유틸리티 클래스
     def __init__(self, n):
         self.parent = [i for i in range(n)]
-        # [0, 1, 2, 3, 4, 5]
-        # [0, 0, 2, 3, 4, 5]
 
 
     def find(self, z):
@@ -94,3 +92,23 @@ for c, s, e in mst_edges:
     print(f"{cities[s]} --- {cities[e]} : {c}")
 ```
 </details>
+
+
+
+
+
+
+
+
+
+<details>
+    <summary>edges = list()</summary>
+```python
+edges = list()
+for i in range(graph_size):
+    for j in range(graph_size):
+        if g1.graph[i][j] != 0:
+            edges.append([g1.graph[i][j], i, j])
+```
+edges list에 간선을 등록하고 있다.
+ </details>
