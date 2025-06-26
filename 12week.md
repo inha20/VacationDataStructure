@@ -9,6 +9,7 @@
 <details>
     <summary>DFS, BFS</summary>
 순서대로 깊이 우선 탐색, 너비 우선 탐색이다.
+    
 ```python
 def dfs(g, i, visited):
     visited[i] = True
@@ -29,6 +30,7 @@ def bfs(g, i, visited):
                 queue.append(j)
                 visited[j] = 1
 ```
+
 print(chr(ord('A')+i)은 숫자를 알파벳으로 치환해주는 역할을 한다. ASCII 관련 코드이다. <br>
 dfs ; // i행을 먼저 방문 후(0번부터 시작), i행을 알파벳으로 바꿔 출력한다. 이후 추가적으로 연결된 j에게 dfs(g, j, visited)와 같이 재귀적으로 호출한다. 만약 j가 여러개일 경우 스택에 쌓이게 된다.
 bfs ; // i행을 먼저 큐에 넣은 후 i를 알파벳으로 출력하고 나서 큐에 노드가 남아있는 동안 큐에 넣는다.
