@@ -21,7 +21,6 @@ def dfs(g, i, visited):
 def bfs(g, i, visited):
     queue = deque([i])
     visited[i] = 1
-    # while len(queue) != 0:
     while queue:
         i = queue.popleft()
         print(chr(ord('A') + i), end=' ')
