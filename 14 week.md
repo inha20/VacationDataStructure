@@ -153,3 +153,25 @@ for c, s, e in edges:
 ```
 초기에는 모든 노드가 자기 자신을 대표(parent)로 가진다. 이후 경로 압축을 통해 두 노드를 하나의 집합으로 묶고 경로를 압축한다. 이 과정은 노드의 부모 노드가 그래프 안에 관계되어있기에 이루어 질 수 있다. 이후 merge를 통해 서로 다른 두 도시를 연결한다. 이제 제일 밑의 for문을 보자. 정렬된 간선 리스트를 반복하며 가장 저렴한 간선부터 순서대로 연결을 시도한다. 연결이 새롭게 될 때 마다 mst에 추가한다. 이렇게 비용을 최소로 하는 최소신장트리가 완성된다.
  </details> 
+
+
+
+ <details>
+    <summary>MST 구성 및 출력</summary>
+	
+```python
+mst_graph = Graph(graph_size)
+for c, s, e in mst_edges:
+    mst_graph.graph[s][e] = c
+    mst_graph.graph[e][s] = c
+
+print('MST 도로 연결도')
+print_graph(mst_graph)
+print(f"최소 비용 :  {mst_cost}")
+
+print('\nMST 도로 상황')
+for c, s, e in mst_edges:
+    print(f"{cities[s]} --- {cities[e]} : {c}")
+```
+최소 신장 트리의 간선만 모아 새로운 그래프에 추가 후 행렬로 출력한다. 최소 비용은 도시 전체를 연결하는 최소 비용이며, 각각의 도로를 텍스트로 정리하여 작은 UI를 완성하였다. 
+ </details> 
