@@ -41,6 +41,24 @@ def is_valid_parentheses(expression : str) -> bool:  # type hint
 </details>
 
 <details>
+    <summary>괄호 짝 딕셔너리</summary>
+    
+```python
+def is_valid_parentheses(expression : str) -> bool:  # type hint
+    stack = list()
+    brackets = {']': '[', '}': '{', ')': '('}
+    for letter in expression:
+        if letter in brackets.values():
+            stack.append(letter)
+        if letter in brackets.keys():
+            if not stack or stack.pop() != brackets[letter]:
+                return False
+    return not stack
+```
+
+</details>
+
+<details>
     <summary>배열과 두개의 포인터로 큐 만들기</summary>
     
 ```python
