@@ -1,6 +1,6 @@
 #  이진 탐색 트리 BST
 <details>
-    <summary>스택의 푸쉬와 팝</summary>
+    <summary>정의와  insert</summary>
     
 ```python
 class TreeNode:
