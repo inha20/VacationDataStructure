@@ -115,3 +115,41 @@ edges.sort()
 
 edges list에 간선을 등록한 후 비용 순으로 정렬하고 있다.
  </details>
+
+
+
+
+
+
+
+
+<details>
+    <summary>DisjointSet</summary>
+	
+```python
+class DisjointSet:  # 크루스칼 알고리즘을 위한 유틸리티 클래스
+    def __init__(self, n):
+        self.parent = [i for i in range(n)]
+
+
+    def find(self, z):
+        if self.parent[z] != z:
+            self.parent[z] = self.find(self.parent[z])  # 경로 압축
+        return self.parent[z]
+
+
+    def merge(self, x, y):  # union
+        x_root = self.find(x)
+        y_root = self.find(y)
+        if x_root != y_root:
+            self.parent[y_root] = x_root
+            return True
+        return False
+
+for c, s, e in edges:
+    if ds.merge(s, e):
+        mst_edges.append([c, s, e])
+        mst_cost = mst_cost + c
+```
+초기에는 모든 노드가 자기 자신을 대표(parent)로 가진다. 이후 경로 압축을 통해 두 노드를 하나의 집합으로 묶고 경로를 압축한다. 이 과정은 노드의 부모 노드가 그래프 안에 관계되어있기에 이루어 질 수 있다. 이후 merge를 통해 서로 다른 두 도시를 연결한다. 이제 제일 밑의 for문을 보자. 정렬된 간선 리스트를 반복하며 가장 저렴한 간선부터 순서대로 연결을 시도한다. 연결이 새롭게 될 때 마다 mst에 추가한다. 이렇게 비용을 최소로 하는 최소신장트리가 완성된다.
+ </details> 
