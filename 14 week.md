@@ -103,6 +103,7 @@ for c, s, e in mst_edges:
 
 <details>
     <summary>edges = list()</summary>
+	
 ```python
 edges = list()
 for i in range(graph_size):
@@ -110,5 +111,6 @@ for i in range(graph_size):
         if g1.graph[i][j] != 0:
             edges.append([g1.graph[i][j], i, j])
 ```
+
 edges list에 간선을 등록하고 있다.
  </details>
