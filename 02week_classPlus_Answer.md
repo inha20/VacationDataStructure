@@ -5,6 +5,7 @@
 ComputedResults = set()
 MatchingKValues = []
 MaxOfFor = 500
+RestResults = set()
 
 target_count = int(input("몇 개가 수식을 만족한 시점을 찾으시나요? (예: 59) >> "))
 
@@ -16,14 +17,15 @@ def FiveLoop(ForInMax):
                 for c in range(2, k + 1):
                     for d in range(2, k + 1):
                         key = (a, b, c, d)
-                        if key in ComputedResults:
+                        if key in RestResults or ComputedResults:
                             continue
                         if (a ** (5 * d)) * (c ** (5 * b)) == (24 ** (b * d)):
                             ComputedResults.add(key)
-
                             if len(ComputedResults) == target_count and KOnTargetKey is None:
                                 KOnTargetKey = k
                                 print(f"{target_count}번째 조합에 도달! k = {KOnTargetKey}")
+                        else:
+                            RestResults.add(key)
 
         if len(ComputedResults) == target_count:
             MatchingKValues.append(k)
@@ -46,4 +48,4 @@ else:
     print("리스트가 비어 있어 답을 계산할 수 없습니다.")
 
 ```
-주석 /** */, 중복 계산을 방지하기.
+주석 /** */
