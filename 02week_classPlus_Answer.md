@@ -23,7 +23,7 @@ def FiveLoop(ForInMax):
 
                             if len(ComputedResults) == target_count and KOnTargetKey is None:
                                 KOnTargetKey = k
-                                print(f"[🎯] {target_count}번째 조합에 도달! k = {KOnTargetKey}")
+                                print(f"{target_count}번째 조합에 도달! k = {KOnTargetKey}")
 
         if len(ComputedResults) == target_count:
             MatchingKValues.append(k)
