@@ -37,7 +37,6 @@ for i in range(2, MaxOfFor):
     if result == "STOP":
         break
 
-print("\n Matching k 값 리스트:", MatchingKValues)
 print(f"{target_count}번째 조합이 처음으로 만들어진 k 값: {KOnTargetKey}")
 
 if MatchingKValues:
