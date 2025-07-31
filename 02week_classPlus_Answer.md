@@ -9,7 +9,7 @@ RestResults = set()
 
 target_count = int(input("몇 개가 수식을 만족한 시점을 찾으시나요? (예: 59) >> "))
 
-/**(int)ForInMax를 받아 5중for문을 돌립니다.*/
+#/**(int)ForInMax를 받아 5중for문을 돌립니다.*/
 def FiveLoop(ForInMax):
     global KOnTargetKey
     for k in range(2, ForInMax):
