@@ -7,6 +7,7 @@ MaxOfFor = 500
 target_count = int(input("몇 개가 수식을 만족한 시점을 찾으시나요? (예: 59) >> "))
 
 
+#/**조합을 탐색해 target_count 도달 시점의 k를 계산하는 함수.*/ 
 def solve_exact_range(max_k, target_count):
     ComputedResults = set()
     RestResults = set()
