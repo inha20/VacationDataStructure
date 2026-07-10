@@ -301,16 +301,37 @@ def reverse(self):
         CurNode = NextLink 
     self.head = PrevNode
 ```
+어려운 이유 : 링크드 리스트 뒤집기는 노드를 이동시키는 것이 아니라 링크의 방향을 바꾸는 알고리즘이다. 가장 어려운 점은 링크의 방향을 바꾸는 순간 기존의 다음 노드 정보를 잃어버릴 수 있다는 것이다. 따라서 기존 링크를 먼저 백업한 뒤 방향을 반대로 바꾸고, 다음 노드로 이동하는 순서가 매우 중요하다.<br><br>
+
 개론 : link의 대입이란 목적지까지의 끝으로 향하는 화살표의 종점을 유지하며 화살표의 시점을 대입하는 방향으로 덮어쓰는 과정이다. 따라서 NextLink=CurNode.link는 기존의 현재 노드가 가리키는 종점 정보를 유지한 상태에서 새로운 변수에 시점을 임시저장하는 형태로, 추후 지금의 CurNode에 대해 CurNode.link.link = NextLink 가 CurNode의 이동 등과 연관지어져서 이루어짐을 암시한다. 그런 코드가 실제로 있다는 뜻이 아니라, CurNode.link=Curnode가 PrevNode를 걸쳐 작동하는 것이 CurNode = NextLink랑 맞물려 작동한다는 뜻이다. <br><br>
+
+4줄의 의미 : 
+```py
+NextLink = CurNode.link #아직 방문하지 않은 다음 노드를 백업
+CurNode.link = PrevNode #현재 노드의 링크 방향을 반대로 바꿈
+PrevNode = CurNode #뒤집기가 완료된 리스트를 한 칸 확장함
+CurNode = NextLink #백업해 둔 다음 노드로 이동
+```
+```py
+NextLink = CurNode.link #화살표의 종점을 백업
+CurNode.link = PrevNode #순서를 뒤집은 후의 링크드리스트 전체의 시점을 지정
+PrevNode = CurNode #화살표의 시점을 이동
+CurNode = NextLink #화살표의 종점을 재이동해 화살표 뒤집기 완료
+```
 
 4개 코드 문장의 순서 설명 : 이처럼 CurNode.link를 다른 변수에 임시저장한 상태에서, 그 위를 PrevNode로 덮어쓰게 되면 이는 CurNode의 link 방향이 정반대로 바뀐 것이다. 그렇다면 기존의 CurNode.link가 가리키는 오브젝트(종점)의 정보에는 어떻게 접근 할 수 있을까? 그렇다. NextLink=CurNode.link로 백업을 이미 해놓았지 않은가. 이러한 과정을 그 다음, 그 다다음의 노드에서도 계속하기 위해선 기존의 CurNode.link에 해당하는 NextLink를 CurNode에 덮어쓰면 된다, 그리고 당연히 그 사이엔 PrevNode를 CurNode로 끌어오는 과정이 순서에 맞게 들어가야 한다. 다시 말해, NextLink=CurNode.link; 와 CurNode=NextLink; 사이에는 현재 노드가 화살표의 방향을 반대로 돌리는 CurNode.link=PrevNode; 와 그러한 PrevNode를 PrevNode=CurNode;로 끌어오는 과정이 필연적으로 필요하며, 예를 들어가며 작동시켜보면 잘 작동된다는 것을 알 수 있게 된다. 이러한 과정이 끝난 후에 새로운 head를 알맞게 지정하면 끝이다. <br><br>
 
 4개 코드 문장의 AI 설명 : link에 값을 대입한다는 것은 화살표의 시작점이 가리키는 대상을 변경하는 것이다. 따라서 CurNode.link = PrevNode를 먼저 수행하면 기존에 CurNode.link가 가리키던 다음 노드의 정보는 사라진다. 이를 방지하기 위해 먼저 NextLink = CurNode.link로 기존의 연결을 백업한다. 이후 CurNode.link = PrevNode를 수행하여 현재 노드의 화살표를 반대로 돌린다. 마지막으로 PrevNode = CurNode, CurNode = NextLink를 수행하여 한 칸 앞으로 이동하면, 같은 작업을 다음 노드에서도 반복할 수 있다. <br><br>
 
+이미지자료 : 
 ![images/LinkedReserve1.png](images/LinkedReserve1.png)
-![images/LinkedReserve2.png](images/LinkedReserve2.png)
+![images/LinkedReserve2.png](images/LinkedReserve2.png) <br><br>
 
-변수역할 : NextLink는 아직 처리하지 않은 나머지 리스트를 잃지 않기 위한 백업을, PrevNode는 지금까지 뒤집기가 완료된 리스트의 새로운 head를 수행한다. <br> NextLink는 아직 방문하지 않은 다음 노드를 기억하고, PrevNode는 이미 뒤집기가 완료된 리스트를 가리킨다. CurNode는 이 둘을 연결하는 현재 작업 대상이다. <br> NextLink는 미래를 잃지 않기 위한 변수이고, PrevNode는 과거를 쌓아 가는 변수이다.
+변수역할 : NextLink는 아직 처리하지 않은 나머지 리스트를 잃지 않기 위한 백업을, PrevNode는 지금까지 뒤집기가 완료된 리스트의 새로운 head를 수행한다. <br> NextLink는 아직 방문하지 않은 다음 노드를 기억하고, PrevNode는 이미 뒤집기가 완료된 리스트를 가리킨다. CurNode는 이 둘을 연결하는 현재 작업 대상이다. <br> NextLink는 미래를 잃지 않기 위한 변수이고, PrevNode는 과거를 쌓아 가는 변수이다. <br><br>
+
+PrevNode 앞에 하나씩 붙어나가는 이유 : CurNode.link가 PrevNode로 대체되면 현재 노드의 링크 방향은 반대로 바뀌지만, 알고리즘은 멈추지 않는다. 그 이유는 링크를 뒤집기 전에 NextLink = CurNode.link를 통해 아직 처리하지 않은 다음 노드의 참조를 미리 백업해 두었기 때문이다. 따라서 CurNode.link = PrevNode로 현재 노드를 이미 뒤집어진 리스트의 맨 앞에 연결한 뒤, PrevNode = CurNode를 수행하여 뒤집기가 완료된 리스트를 한 노드 확장하고, 마지막으로 CurNode = NextLink를 수행하여 백업해 두었던 다음 노드로 이동한다. 이 과정을 반복할 때마다 PrevNode 앞에는 새로운 노드가 하나씩 이어 붙여지고, CurNode는 아직 뒤집지 않은 나머지 리스트를 계속 순회하게 된다. 결국 반복문이 종료되면 PrevNode는 완전히 뒤집어진 링크드 리스트의 새로운 head를 가리키게 된다.
+
+
 
 
 </details>
