@@ -288,7 +288,7 @@ if target == current.data:
 
 
 <details>
-    <summary>링크드 리스트 뒤집기</summary>
+    <summary>링크드 리스트 뒤집기 (개인적으로 어려웠던 구간)</summary>
     
 ```python
 def reverse(self):
@@ -301,7 +301,17 @@ def reverse(self):
         CurNode = NextLink 
     self.head = PrevNode
 ```
-개인적으로 어려웠던 구간이다. link의 대입이란 목적지까지의 끝으로 향하는 화살표의 종점을 유지하며 화살표의 시점을 대입하는 방향으로 덮어쓰는 과정이다. 따라서 NextLink=CurNode.link는 기존의 현재 노드가 가리키는 종점 정보를 유지한 상태에서 새로운 변수에 시점을 임시저장하는 형태로, 추후 지금의 CurNode에 대해 CurNode.link.link = NextLink 가 CurNode의 이동 등과 연관지어져서 이루어짐을 암시한다. 이처럼 CurNode.link를 임시저장한 상태에서, 그 위를 PrevNode로 덮어쓰게 되면 이는 CurNode의 link 방향이 정반대로 바뀐 것이다. 그렇다면 기존의 CurNode.link가 가리키는 오브젝트(종점)의 정보에는 어떻게 접근 할 수 있을까? 그렇다. NextLink=CurNode.link로 백업을 이미 해놓았지 않은가. 이러한 과정을 그 다음, 그 다다음의 노드에서도 계속하기 위해선 기존의 CurNode.link에 해당하는 NextLink를 CurNode에 덮어쓰면 된다, 그리고 당연히 그 사이엔 PrevNode를 CurNode로 끌어오는 과정이 순서에 맞게 들어가야 한다. 다시 말해, NextLink=CurNode.link; 와 CurNode=NextLink; 사이에는 현재 노드가 화살표의 방향을 반대로 돌리는 CurNode.link=PrevNode; 와 그러한 PrevNode를 PrevNode=CurNode;로 끌어오는 과정이 필연적으로 필요하며, 예를 들어가며 작동시켜보면 잘 작동된다는 것을 알 수 있게 된다. 이러한 과정이 끝난 후에 새로운 head를 알맞게 지정하면 끝이다.
+개론 : link의 대입이란 목적지까지의 끝으로 향하는 화살표의 종점을 유지하며 화살표의 시점을 대입하는 방향으로 덮어쓰는 과정이다. 따라서 NextLink=CurNode.link는 기존의 현재 노드가 가리키는 종점 정보를 유지한 상태에서 새로운 변수에 시점을 임시저장하는 형태로, 추후 지금의 CurNode에 대해 CurNode.link.link = NextLink 가 CurNode의 이동 등과 연관지어져서 이루어짐을 암시한다. 그런 코드가 실제로 있다는 뜻이 아니라, CurNode.link=Curnode가 PrevNode를 걸쳐 작동하는 것이 CurNode = NextLink랑 맞물려 작동한다는 뜻이다. <br><br>
+
+4개 코드 문장의 순서 설명 : 이처럼 CurNode.link를 다른 변수에 임시저장한 상태에서, 그 위를 PrevNode로 덮어쓰게 되면 이는 CurNode의 link 방향이 정반대로 바뀐 것이다. 그렇다면 기존의 CurNode.link가 가리키는 오브젝트(종점)의 정보에는 어떻게 접근 할 수 있을까? 그렇다. NextLink=CurNode.link로 백업을 이미 해놓았지 않은가. 이러한 과정을 그 다음, 그 다다음의 노드에서도 계속하기 위해선 기존의 CurNode.link에 해당하는 NextLink를 CurNode에 덮어쓰면 된다, 그리고 당연히 그 사이엔 PrevNode를 CurNode로 끌어오는 과정이 순서에 맞게 들어가야 한다. 다시 말해, NextLink=CurNode.link; 와 CurNode=NextLink; 사이에는 현재 노드가 화살표의 방향을 반대로 돌리는 CurNode.link=PrevNode; 와 그러한 PrevNode를 PrevNode=CurNode;로 끌어오는 과정이 필연적으로 필요하며, 예를 들어가며 작동시켜보면 잘 작동된다는 것을 알 수 있게 된다. 이러한 과정이 끝난 후에 새로운 head를 알맞게 지정하면 끝이다. <br><br>
+
+4개 코드 문장의 AI 설명 : link에 값을 대입한다는 것은 화살표의 시작점이 가리키는 대상을 변경하는 것이다. 따라서 CurNode.link = PrevNode를 먼저 수행하면 기존에 CurNode.link가 가리키던 다음 노드의 정보는 사라진다. 이를 방지하기 위해 먼저 NextLink = CurNode.link로 기존의 연결을 백업한다. 이후 CurNode.link = PrevNode를 수행하여 현재 노드의 화살표를 반대로 돌린다. 마지막으로 PrevNode = CurNode, CurNode = NextLink를 수행하여 한 칸 앞으로 이동하면, 같은 작업을 다음 노드에서도 반복할 수 있다. <br><br>
+
+![images/LinkedReserve1.png](LinkedReserve1.png)
+
+변수역할 : NextLink는 아직 처리하지 않은 나머지 리스트를 잃지 않기 위한 백업을, PrevNode는 지금까지 뒤집기가 완료된 리스트의 새로운 head를 수행한다. <br> NextLink는 아직 방문하지 않은 다음 노드를 기억하고, PrevNode는 이미 뒤집기가 완료된 리스트를 가리킨다. CurNode는 이 둘을 연결하는 현재 작업 대상이다. <br> NextLink는 미래를 잃지 않기 위한 변수이고, PrevNode는 과거를 쌓아 가는 변수이다.
+
+
 </details>
 
 
