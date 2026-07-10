@@ -307,7 +307,8 @@ def reverse(self):
 
 4개 코드 문장의 AI 설명 : link에 값을 대입한다는 것은 화살표의 시작점이 가리키는 대상을 변경하는 것이다. 따라서 CurNode.link = PrevNode를 먼저 수행하면 기존에 CurNode.link가 가리키던 다음 노드의 정보는 사라진다. 이를 방지하기 위해 먼저 NextLink = CurNode.link로 기존의 연결을 백업한다. 이후 CurNode.link = PrevNode를 수행하여 현재 노드의 화살표를 반대로 돌린다. 마지막으로 PrevNode = CurNode, CurNode = NextLink를 수행하여 한 칸 앞으로 이동하면, 같은 작업을 다음 노드에서도 반복할 수 있다. <br><br>
 
-![images/LinkedReserve1.png](LinkedReserve1.png)
+![images/LinkedReserve1.png](images/LinkedReserve1.png)
+![images/LinkedReserve2.png](images/LinkedReserve2.png)
 
 변수역할 : NextLink는 아직 처리하지 않은 나머지 리스트를 잃지 않기 위한 백업을, PrevNode는 지금까지 뒤집기가 완료된 리스트의 새로운 head를 수행한다. <br> NextLink는 아직 방문하지 않은 다음 노드를 기억하고, PrevNode는 이미 뒤집기가 완료된 리스트를 가리킨다. CurNode는 이 둘을 연결하는 현재 작업 대상이다. <br> NextLink는 미래를 잃지 않기 위한 변수이고, PrevNode는 과거를 쌓아 가는 변수이다.
 
