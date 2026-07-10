@@ -101,7 +101,7 @@ class LinkedList:
 링크드 리스트는 생성될 때 self.head = None으로 초기화된다. 이는 첫 번째 노드를 아직 가리키고 있지 않은 빈(Empty) 링크드 리스트임을 의미한다. 이후 첫 번째 노드가 삽입되면 self.head는 그 노드를 가리키게 된다.
 
 <details>
-    <summary>AI의 한마디와 추가설명</summary> <br>
+    <summary>AI의 한마디와 추가설명</summary>  <br>  
 
 > **링크드 리스트의 시작점은 첫 번째 노드가 아니라 head이다.** <br>
 head는 데이터를 저장하는 노드가 아니라 첫 번째 노드를 가리키는 참조 변수이다. 따라서 head가 None이라는 것은 데이터가 없는 것이 아니라, 리스트 자체가 비어 있음을 의미한다.
