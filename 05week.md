@@ -329,8 +329,15 @@ CurNode = NextLink #화살표의 종점을 재이동해 화살표 뒤집기 완�
 
 변수역할 : NextLink는 아직 처리하지 않은 나머지 리스트를 잃지 않기 위한 백업을, PrevNode는 지금까지 뒤집기가 완료된 리스트의 새로운 head를 수행한다. <br> NextLink는 아직 방문하지 않은 다음 노드를 기억하고, PrevNode는 이미 뒤집기가 완료된 리스트를 가리킨다. CurNode는 이 둘을 연결하는 현재 작업 대상이다. <br> NextLink는 미래를 잃지 않기 위한 변수이고, PrevNode는 과거를 쌓아 가는 변수이다. <br><br>
 
-PrevNode 앞에 하나씩 붙어나가는 이유 : CurNode.link가 PrevNode로 대체되면 현재 노드의 링크 방향은 반대로 바뀌지만, 알고리즘은 멈추지 않는다. 그 이유는 링크를 뒤집기 전에 NextLink = CurNode.link를 통해 아직 처리하지 않은 다음 노드의 참조를 미리 백업해 두었기 때문이다. 따라서 CurNode.link = PrevNode로 현재 노드를 이미 뒤집어진 리스트의 맨 앞에 연결한 뒤, PrevNode = CurNode를 수행하여 뒤집기가 완료된 리스트를 한 노드 확장하고, 마지막으로 CurNode = NextLink를 수행하여 백업해 두었던 다음 노드로 이동한다. 이 과정을 반복할 때마다 PrevNode 앞에는 새로운 노드가 하나씩 이어 붙여지고, CurNode는 아직 뒤집지 않은 나머지 리스트를 계속 순회하게 된다. 결국 반복문이 종료되면 PrevNode는 완전히 뒤집어진 링크드 리스트의 새로운 head를 가리키게 된다.
+알고리즘의 진행 (1) : CurNode.link가 PrevNode로 대체되면 현재 노드의 링크 방향은 반대로 바뀌지만, 알고리즘은 멈추지 않는다. 그 이유는 링크를 뒤집기 전에 NextLink = CurNode.link를 통해 아직 처리하지 않은 다음 노드의 참조를 미리 백업해 두었기 때문이다. 따라서 CurNode.link = PrevNode로 현재 노드를 이미 뒤집어진 리스트의 맨 앞에 연결한 뒤, PrevNode = CurNode를 수행하여 뒤집기가 완료된 리스트를 한 노드 확장하고, 마지막으로 CurNode = NextLink를 수행하여 백업해 두었던 다음 노드로 이동한다. 이 과정을 반복할 때마다 PrevNode 앞에는 새로운 노드가 하나씩 이어 붙여지고, CurNode는 아직 뒤집지 않은 나머지 리스트를 계속 순회하게 된다. 결국 반복문이 종료되면 PrevNode는 완전히 뒤집어진 링크드 리스트의 새로운 head를 가리키게 된다.<br>
+매 반복바다 역할은 이렇게 바뀐다.<br>
+1.CurNode는 현재 작업할 노드를 가리킨다.<br>
+2.NextLink는 그 다음 노드를 백업한다.<br>
+3.CurNode.link를 PrevNode로 바꾼다.<br>
+4.PrevNode를 현재 노드로 이동시킨다.<br>
+5.CurNode를 백업해 둔 NextLink로 이동시킨다<br><br>
 
+알고리즘의 진행 (2) : Reverse 알고리즘에서는 객체는 한 번도 이동하지 않는다. 이동하는 것은 CurNode, PrevNode, NextLink와 같은 포인터이며, CurNode.link = PrevNode는 노드 내부 화살표의 종점을 바꾸는 연산이고, CurNode = NextLink는 현재 작업 포인터의 시점을 다음 객체로 옮기는 연산이다.
 
 
 
