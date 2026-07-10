@@ -338,7 +338,7 @@ CurNode = NextLink #화살표의 종점을 재이동해 화살표 뒤집기 완�
 
 알고리즘의 진행 (2) : Reverse 알고리즘에서는 객체는 한 번도 이동하지 않는다. 이동하는 것은 CurNode, PrevNode, NextLink와 같은 포인터이며, CurNode.link = PrevNode는 노드 내부 화살표의 종점을 바꾸는 연산이고, CurNode = NextLink는 현재 작업 포인터의 시점을 다음 객체로 옮기는 연산이다.
 
-
+![images/LinkedReserve3.png](images/LinkedReserve3.png) <br><br>
 
 </details>
 
