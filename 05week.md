@@ -208,7 +208,19 @@ head부터 시작한 current가 존재하는 동안(current가 None이 아닐 �
             current = current.link  
         current.link = Node(data)
 ```
-self.head가 없으면 붙이고, 있을 경우 다음에 따른다 : current.link가 있을 동안 current=current.link로 한 칸 씩 넘어가며 current를 제일 마지막으로 몰은 후, 그러한 current의 link에 data를 입력받아 생성된 Node를 연결한다.
+append() 메서드는 새로운 노드를 링크드 리스트의 마지막에 추가하는 기능을 수행한다. 먼저 self.head가 존재하지 않으면, 현재 리스트가 비어 있는 상태이므로 새 노드를 생성하여 head가 가리키도록 한 뒤 메서드를 종료한다. head가 이미 존재하면 current를 head로 초기화한 후, current.link가 존재하는 동안 current = current.link를 반복하여 마지막 노드까지 이동한다. 마지막 노드에 도달하면 current.link = Node(data)를 수행하여 새 노드를 연결한다.
+<details>
+    <summary>AI의 한마디와 추가설명</summary>  <br>  
+    
+> **링크드 리스트는 마지막 노드를 바로 알 수 없기 때문에, 새로운 노드를 추가하려면 끝까지 순회해야 한다.** <br>
+> 따라서 단순한 append() 연산도 마지막 노드를 기억하지 않는 구현에서는 O(n)의 시간이 걸린다.
+
+- if not self.head:는 빈 링크드 리스트인지 확인하는 조건이다.
+- return을 사용하는 이유는 첫 번째 노드를 추가한 뒤 더 이상 아래 코드를 실행할 필요가 없기 때문이다.
+- while current.link:는 다음 노드가 존재하는 동안만 이동한다. 반복문이 종료되면 current는 마지막 노드를 가리키고 있다.
+- 마지막 노드의 link는 None이므로, 여기에 새 노드를 연결하면 리스트의 끝에 새로운 노드가 추가된다.
+- 현재 구현의 시간복잡도는 O(n) 이다. 마지막 노드까지 순회해야 하기 때문이다. 만약 링크드 리스트가 마지막 노드를 가리키는 tail 포인터를 함께 관리한다면 append()를 O(1) 에 수행할 수도 있다
+</details>
 </details>
 
 
