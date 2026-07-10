@@ -382,7 +382,7 @@ n mod L = 0
 을 만족하는 n이 반드시 존재하며, 이는 두 포인터의 상대적인 거리가 0이 되어 같은 노드를 가리킨다는 의미이다. 따라서 사이클이 존재하면 slow와 fast는 반드시 만나게 된다.
 
 > 위 증명에서 사용된 mod 연산은 처음 등장하는 개념이다.
-왜 이러한 식이 성립하는지, 그리고 mod가 무엇을 의미하는지는 다음 문서인 모듈러(Modular) 연산에서 자세히 설명한다.
+왜 이러한 식이 성립하는지, 그리고 mod가 무엇을 의미하는지는 다음 문서인 [모듈러(Modular) 연산](https://github.com/inha20/VacationDataStructure/blob/main/05week_1.md)에서 자세히 설명한다.
 </details>
 </details>
 
