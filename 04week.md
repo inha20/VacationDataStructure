@@ -61,22 +61,32 @@ print(OutputList3)
     
 ```python
 ExampleInputList = [0, 1, 0, 2, 3, 0, 0]
-IndexZero = 0
-for Index, Value in enumerate(ExampleInputList):
+WriteIndex = 0
+for ReadIndex, Value in enumerate(ExampleInputList):
     if Value != 0:
-        ExampleInputList[IndexZero] = Value
-        if IndexZero != Index:
-            ExampleInputList[Index] = 0
-        IndexZero += 1
+        ExampleInputList[WriteIndex] = Value
+        if WriteIndex != ReadIndex:
+            ExampleInputList[ReadIndex] = 0
+        WriteIndex += 1
 print(ExampleInputList)
 ```
 선형시간과 상수공간을 만족시킨다는 점에서 기존보다 개선된 알고리즘이다. <br>
-Value가 0일 때 작동되는 코드 없이, 0이지 않을 때만 위와 같은 코드가 작동한다. 그럼에도 불구하고 0이 뒤쪽으로 옮겨지는 것은 어떻게 한 것일까? temp=a; a=b; b=temp 또는 이를 파이썬 문법에 맞춘 a,b=b,a를 메서드로 쓰기라도 했단 말인가? 이를 사용하는 매우 비효율적인 코드 대신에, 더 간단한 0이 뒤로 밀려나는 방법을 사용하였다. Value가 0이지 않을 경우에만 리스트 앞쪽으로 값을 가져오고(if Value != 0: ; ExampleInputList[IndexZero] = Value), 이후 기존 자리에 0을 대입 연산하는 조건으로 (if IndexZero != Index: )를 배치시킨 후 그 다음 숫자를 받을 준비를 위해 (IndexZero += 1)를 둔 것이다. 들여쓰기를 적절히 조절하는 것도 잊지 말자.
+Value가 0일 때 작동되는 코드 없이, 0이지 않을 때만 위와 같은 코드가 작동한다. 그럼에도 불구하고 0이 뒤쪽으로 옮겨지는 것은 어떻게 한 것일까? temp=a; a=b; b=temp 또는 이를 파이썬 문법에 맞춘 a,b=b,a를 메서드로 쓰기라도 했단 말인가? 이를 사용하는 매우 비효율적인 코드 대신에, 더 간단한 0이 뒤로 밀려나는 방법을 사용하였다. Value가 0이지 않을 경우에만 리스트 앞쪽으로 값을 가져오고(if Value != 0: ; ExampleInputList[WriteIndex] = Value), 이후 기존 자리에 0을 대입 연산하는 조건으로 (if IndexZero != Index: )를 배치시킨 후 그 다음 숫자를 받을 준비를 위해 (WriteIndex += 1)를 둔 것이다. 들여쓰기를 적절히 조절하는 것도 잊지 말자.
 
 <details>
     <summary>AI의 한마디와 추가설명</summary>
-> [!투 포인터 알고리즘의 핵심은 데이터를 '교환'하는 것이 아니라 '덮어쓰는 순서'를 설계하는 것이다.]
+    <br>
+    
+> **투 포인터 알고리즘의 핵심은 데이터를 '교환'하는 것이 아니라 '덮어쓰는 순서'를 설계하는 것이다.** <br>
 앞쪽은 항상 완성된 영역으로 유지하고, 뒤쪽은 아직 처리되지 않은 영역으로 남겨 둔다. 이렇게 처리 순서를 설계하면 별도의 임시 변수나 추가 리스트 없이도 원하는 결과를 얻을 수 있다.
+
+- WriteIndex는 현재 읽고 있는 위치를 의미하고, ReadIndex는 다음으로 0이 아닌 값을 저장할 위치를 의미한다.
+- 두 포인터는 항상 ReadIndex <= WriteIndex를 만족하므로, 아직 읽지 않은 데이터를 덮어쓰는 일이 발생하지 않는다.
+- if WriteIndex != ReadIndex: 조건은 자기 자신에게 0을 덮어쓰는 불필요한 연산을 방지한다.
+이 알고리즘은 원본 리스트를 직접 수정(In-place) 하기 때문에 추가 리스트를 생성하지 않아 공간복잡도는 O(1) 이다.
+- 이러한 "읽는 위치(Read Pointer)"와 "쓰는 위치(Write Pointer)"를 분리하는 사고방식은 배열 압축, 중복 제거, 문자열 처리 등 다양한 알고리즘에서 반복적으로 등장한다.
+
+알고리즘과 들여쓰기를 보자. 리스트에서 인덱스와 값을 ReadIndex, Value의 변수명으로 받아 사전에 WriteIndex = 0으로 초기화된 또 다른 변수를 인덱스값으로 사용하여 남은 배열의 맨 앞에 0이 아닌 데이터를 넣는다. 그 후 두 인덱스가 차이날 때 ReadIndex의 인덱스값에 있는 리스트의 값에 0을 넣고, 마지막으로 WriteIndex를 다음칸으로 옮겨 다음 for문의 작동을 대기한다. 이러한 for문이 끝난 후 print문을 통해 정렬결과를 출력한다.
 </details>    
 </details>
 
