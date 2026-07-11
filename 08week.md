@@ -71,7 +71,26 @@ def search(find_number):
             current = current.right
 ```
 
-찾는 숫자가 current.data보다 작을 경우, current=current.left로 가기 전에 current.left가 none일 경우 false를 리턴하는 코드를 먼저 실행한다. 이를 right의 경우까지 실행하고 나면 해당 진행 전체를 while True로 묶는다. current가 자리이동할 수 있도록 current=root도 빼먹지 말자.
+하나의 값을 입력받아 BST에서 해당 값이 존재하는지 탐색하는 함수이다. 먼저 current = root로 루트 노드부터 탐색을 시작한다. 이후 while True를 통해 값을 찾거나 더 이상 이동할 수 없을 때까지 반복한다.
+- find_number == current.data이면 원하는 값을 찾은 것이므로 True를 반환한다.
+- find_number < current.data이면 BST의 규칙에 따라 왼쪽 서브트리로 이동한다.
+	- 이동하기 전에 current.left가 None이면 더 이상 탐색할 노드가 없으므로 False를 반환한다.
+	- 그렇지 않으면 current = current.left로 이동하여 탐색을 계속한다.
+- find_number > current.data이면 오른쪽 서브트리로 이동한다.
+	- current.right가 None이면 값을 찾을 수 없으므로 False를 반환한다.
+	- 그렇지 않으면 current = current.right로 이동하여 탐색을 계속한다.
+
+BST는 왼쪽에는 더 작은 값, 오른쪽에는 더 큰(또는 같은) 값이 저장되는 성질을 이용하여 불필요한 탐색을 줄인다.
+
+<details>
+    <summary>AI의 한마디와 추가설명</summary>  <br>  
+- current = root가 없으면 탐색을 시작할 위치를 알 수 없으므로 함수가 동작하지 않습니다.
+- 이 코드는 값을 찾는 즉시 True, 더 이상 이동할 수 없는 순간 False를 반환하므로 끝까지 모든 노드를 탐색하지 않습니다. 이것이 BST 탐색이 효율적인 이유입니다.
+- **시간 복잡도는 트리의 높이 h에 비례하여 O(h)** 입니다.
+	- 균형 잡힌 BST: O(log n)
+	- 한쪽으로 치우친 BST: O(n)
+- 이 코드에서는 root가 None인 빈 트리를 처리하지 않습니다. 실제 프로그램에서는 함수의 처음에 if root is None: return False를 추가하면 빈 트리에서도 안전하게 동작합니다.
+</details>	
 </details>
 
 
@@ -105,14 +124,16 @@ def delete(node, value):
 ```
 
 else 앞에는 재귀호출이다. 그 이후는 자식이 비어있다면 남은 반대쪽 자식 (또는 False) 을 반환한다. 이는 else문이 node로 들어가 그 노드의 자식 노드로 나오는 것을 통해 알 수 있다. 그렇다면 자식이 둘 다 있는 경우는 어떻게 될까? 왼쪽 서브트리의 가장 큰값을 찾아 node.data에 넣고 이렇게 값이 복사된 기존의 노드를 삭제한다. 그렇다면 이렇게 해도 트리의 정보는 원하는 단 한 가지(또는 0가지)만 삭제되는 것일까?
-</details>
-
-
-
-
 
 <details>
     <summary>delete 의문점에 대한 답</summary>
 
 이진트리에서 자식 노드들이 올 수 있는 숫자의 범위는 부모 노드, 부모 노드의 부모 노드, ... 를 따른다. 이처럼 자식 노드에서 부모 노드로 데이터가 올라가도 범위는 넓어지거나 경우에 따라 같아지기만 할 뿐, 더 줄어들지 않아 노드 데이터 범위의 축소가 일어나지 않는다. 이는 위 delete의 이러한 알고리즘이 알맞은 알고리즘임을 시사한다.
+
+
+<details>
+    <summary>AI의 한마디와 추가설명</summary>  <br>  
+
+</details>	
+</details>
 </details>
