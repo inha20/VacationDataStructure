@@ -32,7 +32,22 @@ def insert(root, value):
     return root
 ```
 
-하나의 데이터가 양쪽으로 가리키는 구조로, 이중 링크드 리스트와는 달리 비선형구조이다. root와 value를 받아 기존 BST의 밖에서 Treenode를 생성하고 데이터를 받은 후, value가 current.data보다 작으면 왼쪽으로 이동하고 current=current.left로 이동한다. else문부터는 value>=current.data인 경우이다.
+하나의 데이터가 최대 두 개의 자식 노드를 가리키는 비선형 자료구조이다. 연결 리스트처럼 순차적으로 이어지는 선형 구조가 아니라 계층적인 형태를 가진다. insert(root, value) 함수는 root와 value를 입력받아 새로운 TreeNode를 생성한 뒤, 기존 이진 탐색 트리(BST)의 적절한 위치에 삽입한다. 먼저 root가 None이면 트리가 비어 있는 상태이므로 새 노드를 루트로 반환한다. 트리가 존재하면 current를 root로 설정한 뒤 반복문을 수행한다.
+- value < current.data이면 BST의 규칙에 따라 왼쪽 서브트리로 이동한다.
+	- 왼쪽 자식이 없으면 그 위치에 새 노드를 연결한다.
+	- 자식이 있으면 current = current.left로 이동하여 탐색을 계속한다.
+- 그렇지 않은 경우(value >= current.data)에는 오른쪽 서브트리로 이동한다.
+	- 오른쪽 자식이 없으면 새 노드를 연결한다.
+	- 자식이 있으면 current = current.right로 이동하여 탐색을 계속한다.
+삽입이 완료되면 기존 트리의 루트(root)를 반환한다. 이 알고리즘은 BST의 왼쪽에는 더 작은 값, 오른쪽에는 같거나 큰 값이라는 성질을 유지하면서 새로운 노드를 삽입한다.
+<details>
+    <summary>AI의 한마디와 추가설명</summary>  <br>  
+이 코드에서는 중복값을 허용하며, 중복값은 모두 오른쪽 서브트리에 삽입됩니다(else 때문). 삽입 과정은 루트에서 시작하여 리프 노드까지 한 경로만 따라가므로 **시간 복잡도는 트리의 높이 h에 비례하여 O(h)** 입니다.
+	
+균형 잡힌 BST: O(log n)
+
+한쪽으로 치우친 BST: O(n)
+</details>	
 </details>
 
 
