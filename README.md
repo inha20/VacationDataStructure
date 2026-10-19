@@ -1,3 +1,5 @@
+> **관련 저장소** - [DataStructureProject2](https://github.com/inha20/DataStructureProject2): 같은 주제(자료구조)를 다루는 저장소로, 이 저장소에 이어 진행하는 책 집필 프로젝트입니다. 주제별 책 원고(List.md, Tree.md 등)에 실행되는 C++ 예제 코드를 싣습니다. 이 저장소(VacationDataStructure)는 설명과 Python 코드를 주차별 파일(01week.md ~ 14 week.md, 일부 주차만 있음)로 정리한 학습 노트입니다.
+
 저의 생각이 담겨있는, 제가 애정하는 리포지토리입니다.
 추후 얇은 책으로 출판할 수 있어도 좋겠다고 생각합니다.
 
